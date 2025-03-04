@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ComponentSort } from '../../components/ComponentSort';
+import { AllTypeIntarface } from '../../type';
 
-export function Locations({ locations }) {
+interface LocationsProps {
+  locations: AllTypeIntarface[];
+}
+
+export const Locations: React.FC<LocationsProps> = ({ locations }) => {
   const navigate = useNavigate();
   const [sortedFields, setSortField] = useState(locations);
   return (
@@ -26,4 +31,4 @@ export function Locations({ locations }) {
       </div>
     </>
   );
-}
+};

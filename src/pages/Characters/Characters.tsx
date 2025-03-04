@@ -1,8 +1,14 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { ComponentSort } from '../../components/ComponentSort';
+import { AllTypeIntarface } from '../../type';
 
-export function Characters({ characters }) {
+interface CharactersProps {
+  characters: AllTypeIntarface[];
+  pages: AllTypeIntarface[];
+}
+
+export const Characters: React.FC<CharactersProps> = ({ characters }) => {
   const navigate = useNavigate();
   const [sortedFields, setSortField] = useState(characters);
 
@@ -32,4 +38,4 @@ export function Characters({ characters }) {
       </div>
     </>
   );
-}
+};

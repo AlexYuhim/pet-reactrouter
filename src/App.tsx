@@ -12,7 +12,7 @@ import { LocationDetail } from './pages/Location/LocationDetail';
 
 const { characters, episodes, locations } = API;
 
-function App() {
+const App = () => {
   return (
     <>
       <Routes>
@@ -38,6 +38,6 @@ function App() {
       </Routes>
     </>
   );
-}
+};
 
 export default App;

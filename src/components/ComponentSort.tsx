@@ -1,10 +1,20 @@
 import { useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { AllTypeIntarface } from '../type';
 
-export function ComponentSort({ pages, onSort }) {
+interface ComponentSortProps {
+  pages: AllTypeIntarface[];
+  onSort: React.Dispatch<React.SetStateAction<AllTypeIntarface[]>>;
+}
+
+export const ComponentSort: React.FC<ComponentSortProps> = ({
+  pages,
+  onSort,
+}) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const sortByField = searchParams.get('sort') || 'id';
+  const sortByField: keyof AllTypeIntarface =
+    (searchParams.get('sort') as keyof AllTypeIntarface) || 'id';
   const order = searchParams.get('order') || 'asc';
 
   const toggleOrder = () => {
@@ -14,15 +24,19 @@ export function ComponentSort({ pages, onSort }) {
     });
   };
 
-  const handleSortCange = (e) => {
-    const newSortByField = e.target.value;
+  const handleSortCange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newSortByField = e.target.value as keyof AllTypeIntarface;
     setSearchParams({ sort: newSortByField, order });
   };
 
   const sortedFields = useMemo(() => {
+    if (pages.length === 0) return pages;
     return [...pages].sort((a, b) => {
-      if (a[sortByField] > b[sortByField]) return order === 'asc' ? 1 : -1;
-      if (a[sortByField] < b[sortByField]) return order === 'asc' ? -1 : 1;
+      const valueA = a[sortByField] as string | number;
+      const valueB = b[sortByField] as string | number;
+
+      if (valueA > valueB) return order === 'asc' ? 1 : -1;
+      if (valueA < valueB) return order === 'asc' ? -1 : 1;
       return 0;
     });
   }, [pages, sortByField, order]);
@@ -54,4 +68,4 @@ export function ComponentSort({ pages, onSort }) {
       </div>
     </div>
   );
-}
+};

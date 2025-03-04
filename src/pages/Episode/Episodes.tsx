@@ -1,8 +1,13 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { ComponentSort } from '../../components/ComponentSort';
+import { AllTypeIntarface } from '../../type';
 
-export function Episodes({ episodes }) {
+interface EpisodeProps {
+  episodes: AllTypeIntarface[];
+}
+
+export const Episodes: React.FC<EpisodeProps> = ({ episodes }) => {
   const navigate = useNavigate();
   const [sortedFields, setSortField] = useState(episodes);
 
@@ -27,4 +32,4 @@ export function Episodes({ episodes }) {
       </div>
     </>
   );
-}
+};

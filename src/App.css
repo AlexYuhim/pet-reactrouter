@@ -4,3 +4,76 @@
   padding: 2rem;
   text-align: center;
 }
+a {
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.2s ease;
+  padding: 15px;
+  display: block;
+  min-width: 100px;
+}
+.nav-menu ul {
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.nav-menu ul li {
+  list-style: none;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.nav-menu ul li:hover > a {
+  color: aqua;
+  transition: all 0.2s ease;
+}
+
+.nav-menu ul li:hover {
+  border: 1px solid #31ff00;
+  transition: all 0.2s ease;
+}
+
+.characters_pages_wr,
+.episodes_pages_wr,
+.locations_pages_wr {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.card_episode,
+.card_location {
+  border: 1px solid #fff;
+  width: 300px;
+  padding: 20px;
+}
+.sortBlock {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 50px 0;
+}
+.sortBlock span {
+  margin-right: 10px;
+}
+.location_card_detail_wr,
+.episode_card_detail_wr,
+.hero_card_detail_wr {
+  border: 1px solid #fff;
+  width: 300px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.main-title {
+  font-size: 100px;
+}
+
+.main-menu ul {
+  display: flex;
+  list-style: none;
+}

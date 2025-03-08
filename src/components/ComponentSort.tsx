@@ -30,7 +30,6 @@ export const ComponentSort: React.FC<ComponentSortProps> = ({
   };
 
   const sortedFields = useMemo(() => {
-    if (pages.length === 0) return pages;
     return [...pages].sort((a, b) => {
       const valueA = a[sortByField] as string | number;
       const valueB = b[sortByField] as string | number;

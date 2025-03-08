@@ -72,3 +72,8 @@ a {
 .main-title {
   font-size: 100px;
 }
+
+.main-menu ul {
+  display: flex;
+  list-style: none;
+}

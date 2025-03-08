@@ -1,22 +1,18 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { ComponentSort } from '../../components/ComponentSort';
 import { AllTypeIntarface } from '../../type';
 
 interface CharactersProps {
   characters: AllTypeIntarface[];
-  pages: AllTypeIntarface[];
+  pages?: AllTypeIntarface[];
 }
 
 export const Characters: React.FC<CharactersProps> = ({ characters }) => {
-  const navigate = useNavigate();
   const [sortedFields, setSortField] = useState(characters);
 
   return (
     <>
-      <div>
-        <button onClick={() => navigate('/')}>На главную</button>
-      </div>
       <ComponentSort pages={characters} onSort={setSortField} />
 
       <h2>Страница героев</h2>
@@ -24,7 +20,7 @@ export const Characters: React.FC<CharactersProps> = ({ characters }) => {
       <div className="characters_pages_wr">
         {sortedFields.map((hero) => {
           return (
-            <NavLink key={hero.id} to={`/characters/${hero.id}`}>
+            <NavLink key={hero.id} to={`/categories/characters/${hero.id}`}>
               <div className="card_hero">
                 персонаж № {hero.id}
                 <div>

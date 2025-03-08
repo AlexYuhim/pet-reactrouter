@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { ComponentNavigate } from '../../components/ComponentNavigte';
 import { ICharacter } from '../../type';
 
 interface HeroDetailProps {
@@ -13,8 +12,6 @@ export const HeroDetail: React.FC<HeroDetailProps> = ({ characters = [] }) => {
 
   return (
     <>
-      <ComponentNavigate namePath="ко всем персонажам" />
-
       <div className="hero_card_detail_wr">
         Персонаж № {id}
         <div className="hero_card_img">

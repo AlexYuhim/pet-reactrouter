@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { ComponentNavigate } from '../../components/ComponentNavigte';
 import { ILocation } from '../../type';
 
 interface LocationDetailProps {
@@ -7,7 +6,7 @@ interface LocationDetailProps {
 }
 
 export const LocationDetail: React.FC<LocationDetailProps> = ({
-  locations = [],
+  locations,
 }) => {
   const params = useParams();
   const { id } = params;
@@ -17,7 +16,6 @@ export const LocationDetail: React.FC<LocationDetailProps> = ({
 
   return (
     <>
-      <ComponentNavigate namePath="ко всем локациям" />
       <div className="location_card_detail_wr">
         Локация № {id}
         <div className="location_card_name">

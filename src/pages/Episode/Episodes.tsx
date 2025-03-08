@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { ComponentSort } from '../../components/ComponentSort';
 import { AllTypeIntarface } from '../../type';
@@ -8,19 +8,17 @@ interface EpisodeProps {
 }
 
 export const Episodes: React.FC<EpisodeProps> = ({ episodes }) => {
-  const navigate = useNavigate();
   const [sortedFields, setSortField] = useState(episodes);
 
   return (
     <>
-      <button onClick={() => navigate('/')}>На главную</button>
       <ComponentSort pages={episodes} onSort={setSortField} />
       <div>Страница Эпизодов</div>
       <br />
       <div className="episodes_pages_wr">
         {sortedFields.map((episode) => {
           return (
-            <NavLink key={episode.id} to={`/episodes/${episode.id}`}>
+            <NavLink key={episode.id} to={`/categories/episodes/${episode.id}`}>
               <div className="card_episode">
                 <div>№ : {episode.id}</div>
                 <div>Эпизод : {episode.episode}</div>

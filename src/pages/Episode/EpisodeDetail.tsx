@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { ComponentNavigate } from '../../components/ComponentNavigte';
 import { IEpisode } from '../../type';
 
 interface EpisodeProps {
@@ -13,7 +12,6 @@ export const EpisodeDetail: React.FC<EpisodeProps> = ({ episodes = [] }) => {
 
   return (
     <>
-      <ComponentNavigate namePath="ко всем эпизодам" />
       <div className="episode_card_detail_wr">
         Эпизод № {id}
         <div className="episode_card_species">
